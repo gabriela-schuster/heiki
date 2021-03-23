@@ -14,6 +14,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 	height: 100%;
 }
 .margin {
@@ -29,14 +30,19 @@ h1 {
 h2 {
 	font-size: 2.5rem;
 	color: var(--white);
+	font-family: 'Oswald', sans-serif;
 }
 h3 {
 	font-size: 1.7rem;
 	color: var(--bold);
+	font-family: 'Oswald', sans-serif;
 }
-p {
+p, article {
 	font-size: 1rem;
 	line-height: 1.6rem;
+}
+section {
+	padding: 7rem 5rem;
 }
 
 body {
@@ -58,9 +64,6 @@ header {
 	background-position: center;
 	height: 100vh;
 }
-header .flex {
-	flex-direction: column;
-}
 header img {
 	width: 300px;
 	border-radius: 50%;
@@ -71,9 +74,6 @@ header p {
 	letter-spacing: 2rem;
 }
 
-.presentation {
-	padding: 7rem 3rem;
-}
 .presentation .citation {
 	width: 60%;
 	margin: auto;
@@ -113,9 +113,72 @@ header p {
 	text-align: right;
 }
 
+.work {
+	background-color: var(--darker);
+}
+.work_grid {
+	display: grid;
+	grid-template: 1fr / 1fr 1fr 1fr;
+	margin-top: 3rem;
+}
+.work_item {
+	background-image: url(images/vertical.jpg);
+	background-position: center;
+	background-size: cover;
+
+	height: 60vh;
+
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+}
+.work_item:nth-child(2) {
+	background-image: url(images/tatoo.jpg);
+}
+.work_item:hover {
+	filter:sepia(.5);
+	transition: .3s;
+}
+.work_item h3 {
+	margin-bottom: 2rem;
+}
+
+.history p:first-of-type {
+	color: var(--bold);
+}
+article {
+	width: 60%;
+	margin: 3rem 0;
+}
+.history .statistics {
+	width: 100%;
+	display: grid;
+	gap: 3px;
+	background-color: var(--white);
+	grid-template: 1fr / 1fr 1fr 1fr 1fr;
+}
+.statistic {
+	background-color: var(--dark);
+}
+.statistic p {
+	color: var(--white) !important;
+}
+
+footer {
+	background-color: var(--darker);
+	padding: 5rem 0;
+}
+footer img {
+	width: 250px;
+	border-radius: 50%;
+}
+
 @media(max-width: 600px) {
 	html {
 		font-size: 85%;
+	}
+	.work_item {
+		height: 40vh;
 	}
 }
 @media(max-width: 400px) {
@@ -126,6 +189,10 @@ header p {
 	.flex {
 		width: 100%;
 	}
+	section {
+		padding: 5rem 0;
+	}
+
 	header {
 		text-align: center;
 	}
@@ -133,11 +200,18 @@ header p {
 		width: 200px;
 	}
 
-	.presentation {
-		padding: 5rem 0;
-	}
 	.pres_grid {
 		grid-template: 1fr 1fr 1fr 1fr / 1fr;
 		row-gap: 3rem;
+	}
+
+	article {
+		width: 90%;
+	}
+	.history .statistics {
+		grid-template: 1fr 1fr / 1fr 1fr;
+	}
+	.statistic {
+		padding: 1rem;
 	}
 }
